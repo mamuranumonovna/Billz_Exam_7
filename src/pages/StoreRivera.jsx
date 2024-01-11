@@ -46,7 +46,7 @@ export default function StoreRivera() {
                     <h1>Открытие: 8:00</h1>
                     <h1>Закрытие: 20:00</h1>
                     </div>
-                    
+                    // qarang shu dastur bilan ishlasangiz bo'ladi .Commit qilasiz keyin push qilaverasiz bir boshidan korsatvoring shuni
                 </div>
             </div>
         </div>
