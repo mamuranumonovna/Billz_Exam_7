@@ -48,10 +48,14 @@ const removeItem = (id) => {
   setList(newItem)
 };
 
-
+const addPage=()=>{
+navigate("/magazin/magazin")
+}
   
   
-  
+  const addPage2=()=>{
+    navigate('/magazin')
+  }
 
 
   
@@ -74,7 +78,9 @@ const removeItem = (id) => {
         list,
         setList,
         handleSubmit2,
-        removeItem
+        removeItem,
+        addPage,
+        addPage2
       }}
     >
       {children}

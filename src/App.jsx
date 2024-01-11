@@ -14,6 +14,7 @@ import CashRegistr from './pages/CashRegistr'
 import Checks from './pages/Checks'
 import Currencies from './pages/Currencies'
 import Products from './pages/Products'
+import StoreRivera from './pages/StoreRivera'
 
 
 function App() {
@@ -38,6 +39,7 @@ useEffect(()=>{
     <Route path='/check' element={<Checks/>}/>
     <Route path='/currencies' element={<Currencies/>}/>
     <Route path='/products' element={<Products/>}/>
+    <Route path='/magazin/magazin' element={<StoreRivera/>}/>
    </Routes>
    </Sidebar>
    
