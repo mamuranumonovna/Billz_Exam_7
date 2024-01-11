@@ -46,24 +46,7 @@ export default function StoreRivera() {
                     <h1>Открытие: 8:00</h1>
                     <h1>Закрытие: 20:00</h1>
                     </div>
-                    <div>
-          {startIndex > -4 && (
-            <button
-              className="bg-[#1F1F1F] hover:bg-[#1A1A1A] mr-4 text-white font-bold py-2 px-4 rounded"
-              onClick={handleReturnToFirstSlice}
-            >
-              <img src={left} alt="Left Arrow" />
-            </button>
-          )}
-          {data.length > startIndex + 4 && (
-            <button
-              className="bg-[#1F1F1F] hover:bg-[#1A1A1A] text-white font-bold py-2 px-4 rounded"
-              onClick={handleLoadMore}
-            >
-              <img src={right} alt="Right Arrow" />
-            </button>
-          )}
-        </div>
+                    
                 </div>
             </div>
         </div>
