@@ -14,14 +14,14 @@ export default function Magazin() {
       <div className='flex items-center gap-8 relative mt-9 mb-9'>
       <form >
         <img src={search} alt="search" className='absolute left-4 ' />
-        <input className='px-4 py-4 rounded-s-2xl rounded-e-2xl border w-5/6 border-none bg-gray-100 focus:outline-none placeholder:font-semibold'
+        <input className='px-4 py-4 rounded-s-2xl rounded-e-2xl border w-5/6 border-none bg-slate-50 focus:outline-none placeholder:font-semibold'
         type="text" 
         name='search'
         onChange={(e)=>setStore(e.target.value)}
         placeholder='Название магазина'
         />
       </form>
-      <button onClick={addPage} className='flex gap-4 items-center text-white px-4 py-4 rounded-s-2xl rounded-e-2xl font-semibold bg-blue-500'>
+      <button onClick={addPage} className='flex gap-4 items-center text-white px-4 py-4 rounded-s-2xl rounded-e-2xl font-semibold bg-blue-600'>
           <img src={plus} />
         Новый магазин
         </button>

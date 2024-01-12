@@ -39,7 +39,7 @@ export default function Sidebar({children}) {
   return (
     <div className='container mx-auto'>
  <div className='flex'>
-         <div className='w-80 bg-gray-100 h-screen'>
+         <div className='w-80 bg-slate-50 h-screen  container'>
          <div className='flex items-center py-5 px-7'>
           <div>
           <div>
@@ -56,12 +56,12 @@ export default function Sidebar({children}) {
          {
          menuItem.map((item,index)=>(
          <NavLink className='text-gray-500 text-base mt-4' to={item.path} key={index}  >
-         <div className='px-7 py-3 font-semibold hover:text-blue-500 hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-200 focus:text-blue-500'>{item.name}</div>
+         <div className='px-7 py-3 font-semibold hover:text-blue-600 hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-200 focus:text-blue-600'>{item.name}</div>
          </NavLink>
          ))
          }
         <div className='flex gap-3 px-7 mt-20'>
-         <button className='rounded-full bg-blue-500 text-white px-3 py-2'>ДО</button>
+         <button className='rounded-full bg-blue-600 text-white px-3 py-2'>ДО</button>
          <h1 className='text-gray-500 text-base font-semibold'>Достонхон Озодходжаев</h1>
         </div>
           </div>
