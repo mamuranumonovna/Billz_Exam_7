@@ -18,6 +18,44 @@ export function UserProvider({ children }) {
   const [pr,setPr]=useState("")
   const [store,setStore]=useState('');
   const [enabled, setEnabled] = useState(false);
+  const [color1, setColor1] = useState("light");
+  const [color2, setColor2] = useState("light");
+  const [phoneNumbers, setPhoneNumbers] = useState(['']); 
+
+  const handleChange = (index, value) => {
+    const newPhoneNumbers = [...phoneNumbers];
+    newPhoneNumbers[index] = value;
+    setPhoneNumbers(newPhoneNumbers);
+  };
+
+  const addInput = () => {
+    if (phoneNumbers.length<2) {
+      setPhoneNumbers([...phoneNumbers, '']);
+    }
+  };
+
+  const removeInput = (index) => {
+    const newPhoneNumbers = [...phoneNumbers];
+    newPhoneNumbers.splice(index, 1);
+    setPhoneNumbers(newPhoneNumbers);
+  };
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+  
+    console.log('Phone Numbers:', phoneNumbers);
+  };
+  
+
+  const toggleColor1 = () => {
+    setColor1((prev) => (prev === "light" ? "dark" : "light"));
+    setColor2((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
+  const toggleColor2 = () => {
+    setColor2((prev) => (prev === "light" ? "dark" : "light"));
+    setColor1((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
  
  
@@ -86,7 +124,19 @@ navigate("/magazin/magazin")
         addPage2,
         enabled,
         setEnabled,
-        handleCheckboxClick
+        handleCheckboxClick,
+        color1,
+        setColor1,
+        color2,
+        setColor2,
+        toggleColor1,
+        toggleColor2,
+        phoneNumbers,
+        setPhoneNumbers,
+        handlesubmit ,
+        addInput,
+        handleChange,
+        removeInput
       }}
     >
       {children}

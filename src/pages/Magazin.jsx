@@ -11,10 +11,10 @@ export default function Magazin() {
     <div>
       <h1 className='text-4xl font-semibold px-4 py-11'>Настройки магазинов</h1>
       <hr />
-      <div className='flex items-center gap-8 relative mt-9 mb-9'>
+      <div className='flex items-center gap-8 relative mt-9 mb-9 '>
       <form >
-        <img src={search} alt="search" className='absolute left-4 ' />
-        <input className='px-4 py-4 rounded-s-2xl rounded-e-2xl border w-5/6 border-none bg-slate-50 focus:outline-none placeholder:font-semibold'
+        <img src={search} alt="search" className='absolute left-4 top-[19px]' />
+        <input className='px-11 py-4 rounded-s-2xl rounded-e-2xl  bg-slate-50 focus:outline-none placeholder:font-semibold w-[890px]'
         type="text" 
         name='search'
         onChange={(e)=>setStore(e.target.value)}
@@ -22,12 +22,12 @@ export default function Magazin() {
         />
       </form>
       <button onClick={addPage} className='flex gap-4 items-center text-white px-4 py-4 rounded-s-2xl rounded-e-2xl font-semibold bg-blue-600'>
-          <img src={plus} />
+          <img src={plus}  />
         Новый магазин
         </button>
       </div>
       <hr />
-      <div className='flex items-center gap-[450px] px-8 py-4 text-gray-400 font-semibold'>
+      <div className='flex items-center gap-[350px] px-8 py-4 text-gray-400 font-semibold'>
         <h1>Магазин</h1>
         <h1>Кол-во касс</h1>
         <h1>Действие</h1>

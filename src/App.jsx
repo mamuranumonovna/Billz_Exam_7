@@ -18,6 +18,8 @@ import StoreRivera from './pages/StoreRivera'
 import Toggle from './pages/Products'
 
 
+
+
 function App() {
 
   const { user,list } = useGlobalContext();
@@ -39,7 +41,7 @@ useEffect(()=>{
     <Route path='/cash' element={<CashRegistr/>}/>
     <Route path='/check' element={<Checks/>}/>
     <Route path='/currencies' element={<Currencies/>}/>
-    <Route path='/products' element={<Toggle/>}/>
+    <Route path='/products' element={<Products/>}/>
     <Route path='/magazin/magazin' element={<StoreRivera/>}/>
    </Routes>
    </Sidebar>

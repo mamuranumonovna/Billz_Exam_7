@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import leftIcon from '../assets/leftIcon.svg'
 import { useGlobalContext } from '../context'
 import check from '../assets/check.svg'
 import arrow from '../assets/arrowIcon.svg'
+import deleteIcon from '../assets/delete.svg';
+
 
 export default function StoreRivera() {
 
-    const {addPage2,enabled,setEnabled}=useGlobalContext()
+    const {addPage2,
+        enabled,
+        setEnabled,
+        color1,
+        color2,
+        toggleColor1,
+        toggleColor2,
+        phoneNumbers,
+        setPhoneNumbers,
+        handlesubmit ,
+        addInput,
+        handleChange,
+        removeInput
+
+}=useGlobalContext()
+
+   
 
   return (
     <div>
@@ -34,14 +52,14 @@ export default function StoreRivera() {
                   </div>
                   <div className=''>
                     <h1 className='text-gray-500 font-semibold'>Квадратура</h1>
-                    <input className='focus:outline-none border hover:border-blue-600 mt-3 px-8 w-[410px] py-4 rounded-s-2xl rounded-e-2xl bg-slate-100'
+                    <input className='focus:outline-none border hover:border-blue-600 mt-3 px-8 w-[410px] py-4 rounded-s-2xl rounded-e-2xl bg-slate-100 placeholder:text-right'
                      type="text"
                      placeholder='м2'
                     />
                   </div>
                 </div>
                 <div className='font-semibold text-xl'>
-            <h1 className='text-gray-500 text-xl'>Режим работы</h1>
+            <h1 className='text-gray-500 text-xl mt-8 mb-4'>Режим работы</h1>
                 <div className=''>
                   <div className='flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
                     <h1 className='text-gray-500 w-36'>Понедельник</h1>
@@ -280,20 +298,47 @@ export default function StoreRivera() {
                 </div>
             </div>
             <hr className='my-10' />
+
+
             <div className='flex'>
             <h1 className='w-[300px] text-gray-500 font-semibold text-3xl'>Контакты</h1>
             <div>
+
+
+
                 <div>
                     <h1 className='font-semibold text-gray-500 mb-4 text-xl'>Телефоны</h1>
-                <form action="" className='w-80'>
-                    <input type="text" className='border w-full px-4 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600'
-                    placeholder='+998 (--) --- -- --'
-                    />
-                    <button className=' border w-full px-3 py-4 bg-slate-100 mt-4 rounded-s-2xl rounded-e-2xl text-blue-500 font-semibold text-xl hover:border-blue-600'>
+                <form action="" className='w-180' onSubmit={handlesubmit}>
+                <div className='flex gap-8'>
+                {phoneNumbers.map((phoneNumber, index) => (
+          <div key={index} className='relative'>
+            <input
+              type="text"
+              className='border w-[320px] px-4 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600'
+              placeholder={`+998 (--) --- -- -- `}
+              value={phoneNumber}
+              onChange={(e) => handleChange(index, e.target.value)}
+            />
+            {index === 1 && (
+              <button
+                type="button"
+                className='absolute top-2 right-2 px-4 py-4 '
+                onClick={() => removeInput(index)}
+              >
+                <img src={deleteIcon} alt="delete" />
+              </button>
+            )}
+          </div>
+        ))}
+                </div>
+                    <button className=' border w-[320px] px-3 py-4 bg-slate-100 mt-4 rounded-s-2xl rounded-e-2xl text-blue-500 font-semibold text-xl hover:border-blue-600' onClick={addInput}>
                         + Добавить телефон
                    </button>
                 </form>
                 </div>
+
+
+
                 <div className='flex gap-11 mt-11'>
                 <div className='w-80'>
                    <h1 className='font-semibold text-gray-500 mb-4 text-xl'>Facebook</h1>
@@ -326,9 +371,11 @@ export default function StoreRivera() {
             <div className='flex justify-between text-xl w-[855px]'>
                 <div className=''>
                     <h1 className='text-gray-500 font-semibold mb-4'>Магазин имеет уникальные реквизиты</h1>
-                    <div className='w-[410px] border px-4 py-4 rounded-s-2xl rounded-e-2xl bg-slate-100 hover:border-blue-600'>
-                     <button className='bg-violet-500'></button>
-                     <button className=' bg-violet-500'></button>
+                    <div className='w-[410px] border px-3 py-1 rounded-s-2xl rounded-e-2xl bg-slate-100 hover:border-blue-600'>
+                     <div className='flex justify-between'>
+                     <button className={`${color1 === "light" ? "bg-gray-100" : "bg-white"} bg-slate-100 text-gray-400 font-semibold px-20 py-2.5 rounded-s-xl rounded-e-xl`} onClick={toggleColor1} >Да</button>
+                     <button  className={`${color2 === "light" ? "bg-white" : "bg-gray-100te"} bg-slate-100 text-gray-400 font-semibold  px-20 py-2.5 rounded-s-xl rounded-e-xl`} onClick={toggleColor2} >Нет</button>
+                     </div>
                     </div>
                 </div>
                 <div className=''>
@@ -336,7 +383,6 @@ export default function StoreRivera() {
                     <input type="text" className='border w-[410px] px-4 py-4 rounded-s-2xl rounded-e-2xl bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 hover:border-blue-600'
                     placeholder='Введите название' />
                 </div>
-        
                 </div>
                 <div className='w-[855px]'>
                     <h1 className='font-semibold text-gray-500 mb-4 mt-8 text-xl'>Юридический адрес</h1>
@@ -350,7 +396,6 @@ export default function StoreRivera() {
                         <input type="text" className='px-4 py-4 border w-full rounded-s-2xl rounded-e-2xl bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 hover:border-blue-600'
                         placeholder='Введите почтовый индекс'
                         />
-
                     </div>
                 </div>
                 <div>
@@ -360,12 +405,11 @@ export default function StoreRivera() {
                         placeholder='Введите банковский счет '
                         />
                         <input type="text" className='border-t-[1px] focus:outline-none w-full rounded-b-2xl px-4 py-4 bg-slate-100  placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400'
-                        placeholder='Введите банковский счет'
+                        placeholder='Название банка и филиал'
                         />
                     </form>
                     <button className='mt-8 w-full px-4 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold text-xl hover:border-blue-600 border'>+ Добавить еще один банковский счет</button>
                 </div>
-               
             </div>
             
             </div>

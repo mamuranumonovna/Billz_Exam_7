@@ -60,13 +60,13 @@ export default function Sidebar({children}) {
          </NavLink>
          ))
          }
-        <div className='flex gap-3 px-7 mt-20'>
-         <button className='rounded-full bg-blue-600 text-white px-3 py-2'>ДО</button>
+        <div className='flex gap-3 px-7 mt-20 items-center'>
+         <button className='rounded-full bg-blue-600 text-white px-3 py-3'>ДО</button>
          <h1 className='text-gray-500 text-base font-semibold'>Достонхон Озодходжаев</h1>
         </div>
           </div>
 
-          <main className='w-full p-5 ml-[400px]'>{children}</main>
+          <main className='w-full p-5 ml-[390px]'>{children}</main>
           </div>
     </div>
         
