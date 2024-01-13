@@ -17,6 +17,7 @@ export function UserProvider({ children }) {
   const [password, setPassword] = useState('')
   const [pr,setPr]=useState("")
   const [store,setStore]=useState('');
+  const [enabled, setEnabled] = useState(false);
 
  
  
@@ -57,7 +58,9 @@ navigate("/magazin/magazin")
     navigate('/magazin')
   }
 
-
+  const handleCheckboxClick = () => {
+    setEnabled(!enabled);
+  };
   
   
 
@@ -80,7 +83,10 @@ navigate("/magazin/magazin")
         handleSubmit2,
         removeItem,
         addPage,
-        addPage2
+        addPage2,
+        enabled,
+        setEnabled,
+        handleCheckboxClick
       }}
     >
       {children}

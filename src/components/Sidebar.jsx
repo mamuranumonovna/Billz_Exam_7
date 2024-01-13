@@ -39,13 +39,13 @@ export default function Sidebar({children}) {
   return (
     <div className='container mx-auto'>
  <div className='flex'>
-         <div className='w-80 bg-slate-50 h-screen  container'>
+         <div className='w-96 bg-slate-50 h-screen  container'>
          <div className='flex items-center py-5 px-7'>
           <div>
-          <div>
+          <div className='mt-14'>
          <img src={Logo}/>
          </div>
-         <div className='flex gap-4 mt-11 text-gray-500 text-base font-semibold'>
+         <div className='flex gap-4 mt-16 text-gray-500 text-base font-semibold'>
           <img src={arrow} />
           <img src={setting} />
           <h1>Настройки</h1>
@@ -55,7 +55,7 @@ export default function Sidebar({children}) {
          </div>
          {
          menuItem.map((item,index)=>(
-         <NavLink className='text-gray-500 text-base mt-4' to={item.path} key={index}  >
+         <NavLink className='text-gray-500  mt-4 text-xl' to={item.path} key={index}  >
          <div className='px-7 py-3 font-semibold hover:text-blue-600 hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-200 focus:text-blue-600'>{item.name}</div>
          </NavLink>
          ))
