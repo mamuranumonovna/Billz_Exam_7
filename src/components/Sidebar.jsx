@@ -39,7 +39,7 @@ export default function Sidebar({children}) {
   return (
     <div className='container mx-auto'>
  <div className='flex'>
-         <div className='w-96 bg-slate-50 h-screen  container'>
+         <div className='w-96 bg-slate-50 h-screen fixed container'>
          <div className='flex items-center py-5 px-7'>
           <div>
           <div className='mt-14'>
@@ -66,7 +66,7 @@ export default function Sidebar({children}) {
         </div>
           </div>
 
-          <main className='w-full p-5'>{children}</main>
+          <main className='w-full p-5 ml-[400px]'>{children}</main>
           </div>
     </div>
         
