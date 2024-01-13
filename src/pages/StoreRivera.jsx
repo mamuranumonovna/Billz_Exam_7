@@ -16,11 +16,16 @@ export default function StoreRivera() {
         toggleColor1,
         toggleColor2,
         phoneNumbers,
-        setPhoneNumbers,
         handlesubmit ,
         addInput,
         handleChange,
-        removeInput
+        removeInput,
+        handlesubmit2,
+        removeInput2 ,
+        addInput2,
+        handleChange2,
+        bankAccounts,
+        
 
 }=useGlobalContext()
 
@@ -400,15 +405,35 @@ export default function StoreRivera() {
                 </div>
                 <div>
                     <h1 className='font-semibold text-gray-500 mb-4 mt-8 text-xl'>Банковский счет</h1>
-                    <form action="" className='w-[855px]'>
-                        <input type="text" className='border-b-[1px] w-full rounded-t-2xl px-4 py-4 bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400'
-                        placeholder='Введите банковский счет '
-                        />
-                        <input type="text" className='border-t-[1px] focus:outline-none w-full rounded-b-2xl px-4 py-4 bg-slate-100  placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400'
+                    <form action="" onSubmit={handlesubmit2} className='w-[855px]'>
+                        {bankAccounts.map((account, index) => (
+                         <div key={index} className='relative'>
+                        <input
+                         type="text"
+                             className={`border-b-[1px] w-full rounded-t-2xl rounded-b-2xl  px-4 py-4 bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 mb-8`}
+                             placeholder='Введите банковский счет'
+                             value={account}
+                            onChange={(e) => handleChange2(index, e.target.value)}
+                            />
+                            {index >= 1 && (
+                        <button
+                         type="button"
+                         className='absolute top-2 right-2 px-4 py-4 '
+                        onClick={() => removeInput2(index)}>
+                         <img src={deleteIcon} alt="delete" />
+                         </button>
+                         )}
+                         </div>
+
+                        ))
+
+                        }
+                         <input type="text" className='border-t-[1px] focus:outline-none w-full rounded-t-2xl  rounded-b-2xl px-4 py-4 bg-slate-100  placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400'
                         placeholder='Название банка и филиал'
-                        />
+                        /> 
+                       
                     </form>
-                    <button className='mt-8 w-full px-4 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold text-xl hover:border-blue-600 border'>+ Добавить еще один банковский счет</button>
+                    <button onClick={addInput2} className='mt-8 w-full px-4 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold text-xl hover:border-blue-600 border'>+ Добавить еще один банковский счет</button>
                 </div>
             </div>
             

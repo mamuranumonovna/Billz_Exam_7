@@ -16,6 +16,7 @@ import Currencies from './pages/Currencies'
 import Products from './pages/Products'
 import StoreRivera from './pages/StoreRivera'
 import Toggle from './pages/Products'
+import YourComponent from './pages/Profile'
 
 
 
@@ -35,7 +36,7 @@ useEffect(()=>{
    <Routes>
     <Route path='/login' element={<Login/>}/>
     <Route path='/home' element={<Home/>}/>
-    <Route path='/profile' element={<Profile/>}/>
+    <Route path='/profile' element={<YourComponent/>}/>
     <Route path='/company' element={<Company/>}/>
     <Route path='/magazin' element={<Magazin/>}/>
     <Route path='/cash' element={<CashRegistr/>}/>

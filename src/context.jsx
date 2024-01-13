@@ -21,6 +21,34 @@ export function UserProvider({ children }) {
   const [color1, setColor1] = useState("light");
   const [color2, setColor2] = useState("light");
   const [phoneNumbers, setPhoneNumbers] = useState(['']); 
+  const [bankAccounts, setBankAccounts] = useState(['', '']);
+
+  const handleChange2 = (index, value) => {
+    const updatedAccounts = [...bankAccounts];
+    updatedAccounts[index] = value;
+    setBankAccounts(updatedAccounts);
+  };
+
+  const addInput2 = () => {
+    if(bankAccounts.length<2){
+      setBankAccounts([...bankAccounts, '']);
+    }
+    
+  };
+
+  const removeInput2 = (index) => {
+    if (bankAccounts.length > 1) {
+      const updatedAccounts = [...bankAccounts];
+      updatedAccounts.splice(index, 1);
+      setBankAccounts(updatedAccounts);
+    }
+  };
+
+  const handlesubmit2 = (e) => {
+    e.preventDefault();
+    
+    // console.log('Bank Account Numbers:', bankAccounts);
+  };
 
   const handleChange = (index, value) => {
     const newPhoneNumbers = [...phoneNumbers];
@@ -43,7 +71,7 @@ export function UserProvider({ children }) {
   const handlesubmit = (e) => {
     e.preventDefault();
   
-    console.log('Phone Numbers:', phoneNumbers);
+    // console.log('Phone Numbers:', phoneNumbers);
   };
   
 
@@ -136,7 +164,13 @@ navigate("/magazin/magazin")
         handlesubmit ,
         addInput,
         handleChange,
-        removeInput
+        removeInput,
+        handlesubmit2,
+        removeInput2 ,
+        addInput2,
+        handleChange2,
+        bankAccounts,
+        setBankAccounts
       }}
     >
       {children}
