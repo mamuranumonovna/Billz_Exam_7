@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom'
 import Logo from '../assets/billzLogo.svg'
 import arrow from '../assets/arrowIcon.svg'
 import setting from '../assets/settingIcon.svg'
+import { useGlobalContext } from '../context'
 
 export default function Sidebar({children}) {
+  const {ToggleTheme,theme}=useGlobalContext()
   const menuItem=[
     
     {
@@ -39,16 +41,17 @@ export default function Sidebar({children}) {
   return (
     <div className='container mx-auto'>
  <div className='flex'>
-         <div className='w-96 bg-slate-50 h-screen fixed container'>
+         <div className={`w-96 ${theme==='dark' ? 'bg-gray-700':'bg-slate-50'} h-screen fixed container`}>
          <div className='flex items-center py-5 px-7'>
           <div>
+            <button onClick={ToggleTheme} className={`py-4 px-2 rounded-lg hover:bg-slate-500 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{theme === 'light' ? 'Dark mode' : 'Light mode'}</button>
           <div className='mt-14'>
          <img src={Logo}/>
          </div>
          <div className='flex gap-4 mt-16 text-gray-500 text-base font-semibold'>
           <img src={arrow} />
           <img src={setting} />
-          <h1>Настройки</h1>
+          <h1 className={`${theme==='dark'? 'text-white':'text-gray-500'}`}>Настройки</h1>
          </div>
           </div>
          
@@ -56,13 +59,13 @@ export default function Sidebar({children}) {
          {
          menuItem.map((item,index)=>(
          <NavLink className='text-gray-500  mt-4 text-xl' to={item.path} key={index}  >
-         <div className='px-7 py-3 font-semibold hover:text-blue-600 hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-200 focus:text-blue-600'>{item.name}</div>
+         <div className={`px-7 py-3 font-semibold hover:text-blue-600 hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-200 focus:text-blue-600 ${theme==='dark'? 'text-white':'text-gray-500'}`}>{item.name}</div>
          </NavLink>
          ))
          }
         <div className='flex gap-3 px-7 mt-20 items-center'>
          <button className='rounded-full bg-blue-600 text-white px-3 py-3'>ДО</button>
-         <h1 className='text-gray-500 text-base font-semibold'>Достонхон Озодходжаев</h1>
+         <h1 className={`text-gray-500 text-base font-semibold ${theme==='dark'? 'text-white':'text-gray-500'}`}>Достонхон Озодходжаев</h1>
         </div>
           </div>
 

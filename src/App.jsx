@@ -23,16 +23,18 @@ import YourComponent from './pages/Profile'
 
 function App() {
 
-  const { user,list } = useGlobalContext();
+  const { user,list,theme } = useGlobalContext();
 
 useEffect(()=>{
   localStorage.setItem('users', JSON.stringify(user))
   localStorage.setItem('lists', JSON.stringify(list))
-},[user])
+  
+},[user,list])
 
   return (
    <>
-   <Sidebar>
+  <div className={`${theme==="light" ? "bg-white" : "bg-gray-800"}`}>
+  <Sidebar>
    <Routes>
     <Route path='/login' element={<Login/>}/>
     <Route path='/home' element={<Home/>}/>
@@ -46,6 +48,7 @@ useEffect(()=>{
     <Route path='/magazin/magazin' element={<StoreRivera/>}/>
    </Routes>
    </Sidebar>
+  </div>
    
    </>
   )

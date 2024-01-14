@@ -6,10 +6,10 @@ import plus from '../assets/plusIcon.svg'
 
 
 export default function Magazin() {
-  const {handleSubmit2,list,store,setStore,removeItem,addPage}=useGlobalContext()
+  const {list,removeItem,addPage,theme}=useGlobalContext()
   return (
-    <div>
-      <h1 className='text-4xl font-semibold px-4 py-11'>Настройки магазинов</h1>
+    <div className='h-screen'>
+      <h1 className={`text-4xl font-semibold px-4 py-11 ${theme==='dark'?'text-white':'text-black'}`}>Настройки магазинов</h1>
       <hr />
       <div className='flex items-center gap-8 relative mt-9 mb-9 '>
       <form >
@@ -17,7 +17,6 @@ export default function Magazin() {
         <input className='px-11 py-4 rounded-s-2xl rounded-e-2xl  bg-slate-50 focus:outline-none placeholder:font-semibold w-[890px]'
         type="text" 
         name='search'
-        onChange={(e)=>setStore(e.target.value)}
         placeholder='Название магазина'
         />
       </form>
@@ -33,7 +32,8 @@ export default function Magazin() {
         <h1>Действие</h1>
       </div>
       <hr />
-      {/* {list.map((item)=>{
+      {list.map((item)=>{
+        console.log(list);
             return (
                 <div className='flex gap-[950px] items-center w-full mt-10 border-none bg-gray-100 py-4 rounded-s-2xl rounded-e-2xl' key={item.id}>
                 <h2 className='px-8 text-blue-500 font-semibold'>{item.name}</h2>
@@ -49,7 +49,7 @@ export default function Magazin() {
 
                 </div>
             )
-        })} */}
+        })}
     </div>
   )
 }

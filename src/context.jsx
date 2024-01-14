@@ -23,6 +23,13 @@ export function UserProvider({ children }) {
   const [phoneNumbers, setPhoneNumbers] = useState(['']); 
   const [bankAccounts, setBankAccounts] = useState(['', '']);
 
+  const [theme,setTheme]=useState("light");
+    
+
+    const ToggleTheme=()=>{
+        setTheme((prev)=>(prev === "light" ? "dark" : "light"))
+    }
+
   const handleChange2 = (index, value) => {
     const updatedAccounts = [...bankAccounts];
     updatedAccounts[index] = value;
@@ -90,7 +97,7 @@ export function UserProvider({ children }) {
 
 const handleSubmit=(e)=>{
   e.preventDefault()
-  const newItem = { title: task, password:password}
+  const newItem = { title: task, password:password,}
   setuser([...user, newItem])
   setPr({task:task,password:password})
   setTask('')
@@ -104,9 +111,10 @@ const handleSubmit2 = (e) => {
   if (!store) {
     alert('bosh')
   } else {
-    const newItem = { id: id, name: store }
+    const newItem = { id: id, name:store}
     setList([...list, newItem]);
-    setStore('');
+   setStore('')
+   
   }
 };
 
@@ -126,6 +134,11 @@ navigate("/magazin/magazin")
 
   const handleCheckboxClick = () => {
     setEnabled(!enabled);
+  };
+
+  const handleSave = () => {
+    navigate("/magazin")
+    setStore('')
   };
   
   
@@ -170,7 +183,11 @@ navigate("/magazin/magazin")
         addInput2,
         handleChange2,
         bankAccounts,
-        setBankAccounts
+        setBankAccounts,
+        handleSave,
+        theme,
+        setTheme,
+        ToggleTheme
       }}
     >
       {children}

@@ -25,7 +25,11 @@ export default function StoreRivera() {
         addInput2,
         handleChange2,
         bankAccounts,
-        
+        setStore,
+        store,
+        handleSave,
+        setList,
+        list
 
 }=useGlobalContext()
 
@@ -42,7 +46,7 @@ export default function StoreRivera() {
             </div>
             <div className='flex gap-4'>
             <button className='px-5 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold'>Сбросить</button>
-            <button className='px-5 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold'>Сохранить</button>
+            <button onClick={handleSave} className='px-5 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold'>Сохранить</button>
             </div>
         </div>
         <hr />
@@ -50,10 +54,15 @@ export default function StoreRivera() {
         <div className='flex gap-[150px] mt-8 '>
             <h1 className=' text-gray-500 font-semibold text-3xl'>Основные</h1>
             <div className='w-full'>
+                <form action="" onSubmit={handlesubmit2}>
                 <div className='flex gap-9 text-xl'>
                   <div className=''>
                     <h1 className='text-gray-500 font-semibold'>Наименование</h1>
-                    <input type="text" className='focus:outline-none mt-3 px-8 w-[410px] border hover:border-blue-600 py-4 rounded-s-2xl rounded-e-2xl bg-slate-100' />
+                    <input type="text"  className='focus:outline-none mt-3 px-8 w-[410px] border hover:border-blue-600 py-4 rounded-s-2xl rounded-e-2xl bg-slate-100' 
+                    name='store'
+                    value={store}
+                    onChange={(e)=>{setStore(e.target.value)}}
+                    />
                   </div>
                   <div className=''>
                     <h1 className='text-gray-500 font-semibold'>Квадратура</h1>
@@ -63,6 +72,7 @@ export default function StoreRivera() {
                     />
                   </div>
                 </div>
+                </form>
                 <div className='font-semibold text-xl'>
             <h1 className='text-gray-500 text-xl mt-8 mb-4'>Режим работы</h1>
                 <div className=''>
