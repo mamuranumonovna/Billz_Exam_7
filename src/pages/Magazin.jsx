@@ -14,7 +14,7 @@ export default function Magazin() {
       <div className='flex items-center gap-8 relative mt-9 mb-9 '>
       <form >
         <img src={search} alt="search" className='absolute left-4 top-[19px]' />
-        <input className='px-11 py-4 rounded-s-2xl rounded-e-2xl  bg-slate-50 focus:outline-none placeholder:font-semibold w-[890px]'
+        <input className={`px-11 py-4 rounded-s-2xl rounded-e-2xl   focus:outline-none placeholder:font-semibold w-[890px] ${theme==='dark' ? 'bg-gray-700':'bg-slate-50'} `}
         type="text" 
         name='search'
         placeholder='Название магазина'

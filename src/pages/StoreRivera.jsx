@@ -28,8 +28,7 @@ export default function StoreRivera() {
         setStore,
         store,
         handleSave,
-        setList,
-        list
+        theme
 
 }=useGlobalContext()
 
@@ -42,11 +41,11 @@ export default function StoreRivera() {
             <button onClick={addPage2} className='px-3.5 py-2.5 bg-slate-100 border rounded-full'>
             <img  src={leftIcon} />
             </button>
-            <h1 className='font-semibold text-4xl'><span className='text-gray-200 '>Магазин</span> Store Riviera</h1>
+            <h1 className={`font-semibold text-4xl ${theme==='dark'?'text-white':'text-black'}`}><span className={`${theme==='dark'?'text-gray-50':'text-gray-300'}`}>Магазин</span> Store Riviera</h1>
             </div>
             <div className='flex gap-4'>
-            <button className='px-5 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold'>Сбросить</button>
-            <button onClick={handleSave} className='px-5 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold'>Сохранить</button>
+            <button className={`${theme==='dark' ? 'bg-gray-700':'bg-slate-100'} px-5 py-4  rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold`}>Сбросить</button>
+            <button onClick={handleSave} className={`px-5 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>Сохранить</button>
             </div>
         </div>
         <hr />
@@ -58,7 +57,7 @@ export default function StoreRivera() {
                 <div className='flex gap-9 text-xl'>
                   <div className=''>
                     <h1 className='text-gray-500 font-semibold'>Наименование</h1>
-                    <input type="text"  className='focus:outline-none mt-3 px-8 w-[410px] border hover:border-blue-600 py-4 rounded-s-2xl rounded-e-2xl bg-slate-100' 
+                    <input type="text"  className={`focus:outline-none mt-3 px-8 w-[410px] border hover:border-blue-600 py-4 rounded-s-2xl rounded-e-2xl bg-slate-100 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'} `} 
                     name='store'
                     value={store}
                     onChange={(e)=>{setStore(e.target.value)}}
@@ -66,9 +65,9 @@ export default function StoreRivera() {
                   </div>
                   <div className=''>
                     <h1 className='text-gray-500 font-semibold'>Квадратура</h1>
-                    <input className='focus:outline-none border hover:border-blue-600 mt-3 px-8 w-[410px] py-4 rounded-s-2xl rounded-e-2xl bg-slate-100 placeholder:text-right'
+                    <input className={`focus:outline-none border hover:border-blue-600 mt-3 px-8 w-[410px] py-4 rounded-s-2xl rounded-e-2xl bg-slate-100 placeholder:text-right ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}
                      type="text"
-                     placeholder='м2'
+                     placeholder='Введите квадратуру                          м2'
                     />
                   </div>
                 </div>
@@ -76,7 +75,7 @@ export default function StoreRivera() {
                 <div className='font-semibold text-xl'>
             <h1 className='text-gray-500 text-xl mt-8 mb-4'>Режим работы</h1>
                 <div className=''>
-                  <div className='flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
+                  <div className={`flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
                     <h1 className='text-gray-500 w-36'>Понедельник</h1>
                     <div className='flex gap-20  mx-auto text-gray-400'>
                     <h1>Открытие: 8:00</h1>
@@ -103,7 +102,7 @@ export default function StoreRivera() {
              </div>
              </button>
                 </div>
-                <div className='flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
+                <div className={`flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
                     <h1 className='text-gray-500 w-36 '>Вторник</h1>
                     <div className='flex gap-20   text-gray-400'>
                     <h1>Открытие: 8:00</h1>
@@ -130,7 +129,7 @@ export default function StoreRivera() {
                     </div>
                     </button>
                      </div>
-                    <div className='flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
+                    <div className={`flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
                     <h1 className='text-gray-500 w-36 '>Среда</h1>
                     <div className='flex gap-20  text-gray-400'>
                     <h1>Открытие: 8:00</h1>
@@ -156,7 +155,7 @@ export default function StoreRivera() {
         </div>
                     </button>
                 </div>
-                <div className='flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
+                <div className={`flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
                     <h1 className='text-gray-500 w-36 '>Четверг</h1>
                     <div className='flex gap-20  text-gray-400'>
                     <h1>Открытие: 8:00</h1>
@@ -182,7 +181,7 @@ export default function StoreRivera() {
         </div>
                     </button>
                 </div>
-                <div className='flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
+                <div className={`flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
                     <h1 className='text-gray-500 w-36 '>Пятница</h1>
                     <div className='flex gap-20  text-gray-400'>
                     <h1>Открытие: 8:00</h1>
@@ -208,7 +207,7 @@ export default function StoreRivera() {
         </div>
                     </button>
                 </div>
-                <div className='flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
+                <div className={`flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
                     <h1 className='text-gray-500 w-36 '>Суббота</h1>
                     <div className='flex gap-20  text-gray-400'>
                     <h1>Открытие: 8:00</h1>
@@ -234,7 +233,7 @@ export default function StoreRivera() {
         </div>
                     </button>
                 </div>
-                <div className='flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
+                <div className={`flex items-center justify-between border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
                     <h1 className='text-gray-500 w-36 '>Воскресенье</h1>
                     <div className='flex gap-20  text-gray-400'>
                     <h1>Открытие: 8:00</h1>
@@ -275,9 +274,9 @@ export default function StoreRivera() {
                         <h1>Статус</h1>
                     </div>
                     <hr className='w-[855px]' />
-                    <div className=' border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600'>
-                  <div className='flex items-center justify-between w-[725px]'>
-                  <h1 className='text-gray-500 text-xl font-semibold '>Cashbox Riviera</h1>
+                    <div className={`border mt-4 bg-slate-100 px-4 py-2.5 w-[855px] rounded-s-2xl rounded-e-2xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
+                  <div className={`flex items-center justify-between w-[725px] `}>
+                  <h1 className={`text-gray-500 text-xl font-semibold `}>Cashbox Riviera</h1>
                    
                    <button className=' px-2 py-2'>
                    <div className="relative flex flex-col items-center justify-center overflow-hidden">
@@ -329,7 +328,7 @@ export default function StoreRivera() {
           <div key={index} className='relative'>
             <input
               type="text"
-              className='border w-[320px] px-4 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600'
+              className={`border w-[320px] px-4 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600  ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}
               placeholder={`+998 (--) --- -- -- `}
               value={phoneNumber}
               onChange={(e) => handleChange(index, e.target.value)}
@@ -346,7 +345,7 @@ export default function StoreRivera() {
           </div>
         ))}
                 </div>
-                    <button className=' border w-[320px] px-3 py-4 bg-slate-100 mt-4 rounded-s-2xl rounded-e-2xl text-blue-500 font-semibold text-xl hover:border-blue-600' onClick={addInput}>
+                    <button className={`border w-[320px] px-3 py-4 bg-slate-100 mt-4 rounded-s-2xl rounded-e-2xl text-blue-500 font-semibold text-xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`} onClick={addInput}>
                         + Добавить телефон
                    </button>
                 </form>
@@ -357,21 +356,21 @@ export default function StoreRivera() {
                 <div className='flex gap-11 mt-11'>
                 <div className='w-80'>
                    <h1 className='font-semibold text-gray-500 mb-4 text-xl'>Facebook</h1>
-                        <input type="text" className='border w-full px-3 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600'
+                        <input type="text" className={`border w-full px-3 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'} `}
                         placeholder='Название страницы'/>
                    
                    <h1 className='font-semibold text-gray-500 mb-4 mt-8 text-xl'> Telegram</h1>
-                    <input type="text" className='border w-full px-3 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600' 
+                    <input type="text" className={`border w-full px-3 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'} `} 
                     placeholder='@ Юзернейм'/>
                     
                 </div>
                 <div className='w-80'>
                     <h1 className='font-semibold text-gray-500 mb-4 text-xl'>Instagram</h1>
-                        <input type="text" className='border w-full px-3 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600'
+                        <input type="text" className={`border w-full px-3 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'} `}
                         placeholder='@ Юзернейм'/>
                
                     <h1 className='font-semibold text-gray-500 mb-4 mt-8 text-xl'>Сайт</h1>
-                        <input type="text" className='border w-full px-3 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600'
+                        <input type="text" className={`border w-full px-3 py-4 bg-slate-100 focus:outline-none rounded-s-2xl rounded-e-2xl placeholder:font-semibold text-xl hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}
                         placeholder='Ссылка на сайт'
                         />
                  
@@ -395,20 +394,20 @@ export default function StoreRivera() {
                 </div>
                 <div className=''>
                     <h1 className='text-gray-500 font-semibold mb-4 '>Юридическое название компании</h1>
-                    <input type="text" className='border w-[410px] px-4 py-4 rounded-s-2xl rounded-e-2xl bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 hover:border-blue-600'
+                    <input type="text" className={`border w-[410px] px-4 py-4 rounded-s-2xl rounded-e-2xl bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'} `}
                     placeholder='Введите название' />
                 </div>
                 </div>
                 <div className='w-[855px]'>
                     <h1 className='font-semibold text-gray-500 mb-4 mt-8 text-xl'>Юридический адрес</h1>
-                    <input type="text" className='bg-slate-100 px-4 py-4 w-full rounded-s-2xl rounded-e-2xl border focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 hover:border-blue-600'
+                    <input type="text" className={`bg-slate-100 px-4 py-4 w-full rounded-s-2xl rounded-e-2xl border focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}
                     placeholder='Город, район, улица, дом' />
                     <div className='flex gap-8 mt-8'>
-                        <div className='w-full border px-4 py-4 flex justify-between rounded-s-2xl rounded-e-2xl bg-slate-100 hover:border-blue-600'>
+                        <div className={`w-full border px-4 py-4 flex justify-between rounded-s-2xl rounded-e-2xl bg-slate-100 hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>
                             <h1 className='text-xl font-semibold text-gray-500'>Узбекистан</h1>
                             <img src={arrow}alt="Arrow" className='rotate-[-90deg]'/>
                         </div>
-                        <input type="text" className='px-4 py-4 border w-full rounded-s-2xl rounded-e-2xl bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 hover:border-blue-600'
+                        <input type="text" className={`px-4 py-4 border w-full rounded-s-2xl rounded-e-2xl bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 hover:border-blue-600 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}
                         placeholder='Введите почтовый индекс'
                         />
                     </div>
@@ -420,7 +419,7 @@ export default function StoreRivera() {
                          <div key={index} className='relative'>
                         <input
                          type="text"
-                             className={`border-b-[1px] w-full rounded-t-2xl rounded-b-2xl  px-4 py-4 bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 mb-8`}
+                             className={`border hover:border-blue-600 w-full rounded-t-2xl rounded-b-2xl  px-4 py-4 bg-slate-100 focus:outline-none placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 mb-8 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}
                              placeholder='Введите банковский счет'
                              value={account}
                             onChange={(e) => handleChange2(index, e.target.value)}
@@ -438,12 +437,12 @@ export default function StoreRivera() {
                         ))
 
                         }
-                         <input type="text" className='border-t-[1px] focus:outline-none w-full rounded-t-2xl  rounded-b-2xl px-4 py-4 bg-slate-100  placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400'
+                         <input type="text" className={`border hover:border-blue-600 focus:outline-none w-full rounded-t-2xl  rounded-b-2xl px-4 py-4 bg-slate-100  placeholder:font-semibold placeholder:text-xl placeholder:text-gray-400 ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}
                         placeholder='Название банка и филиал'
                         /> 
                        
                     </form>
-                    <button onClick={addInput2} className='mt-8 w-full px-4 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold text-xl hover:border-blue-600 border'>+ Добавить еще один банковский счет</button>
+                    <button onClick={addInput2} className={`mt-8 w-full px-4 py-4 bg-slate-100 rounded-s-2xl rounded-e-2xl text-gray-400 font-semibold text-xl hover:border-blue-600 border ${theme==='dark' ? 'bg-gray-700':'bg-slate-100'}`}>+ Добавить еще один банковский счет</button>
                 </div>
             </div>
             
