@@ -39,12 +39,25 @@ export default function Sidebar({children}) {
     }
   ]
   return (
-    <div className='container mx-auto'>
+    <div className=''>
  <div className='flex'>
          <div className={`w-96 ${theme==='dark' ? 'bg-gray-700':'bg-slate-50'} h-screen fixed container`}>
          <div className='flex items-center py-5 px-7'>
           <div>
-            <button onClick={ToggleTheme} className={`py-4 px-2 rounded-lg hover:bg-slate-500 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{theme === 'light' ? 'Dark mode' : 'Light mode'}</button>
+          <label className="inline-flex relative items-center mr-5 cursor-pointer">
+                    <input
+                        type="checkbox"
+                        className="sr-only peer"
+                        checked={theme === 'dark' ? true : false}
+                        readOnly
+                        />
+                    <div
+                        onClick={ToggleTheme}
+                        className={`${theme==='dark'?'bg-gray-500':'bg-gray-200'} w-11 h-6  rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600`}
+                    ></div>
+                    <h1 className={`${theme==='dark'?'text-white':'text-gray-500'} ml-4 text-lg font-semibold`}>{theme === 'light' ? 'Dark mode' : 'Light mode'}</h1>
+                    </label>
+            
           <div className='mt-14'>
          <img src={Logo}/>
          </div>

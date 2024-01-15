@@ -2,11 +2,12 @@ import React from 'react'
 import { useGlobalContext } from '../context'
 import search from '../assets/searchIcon.svg'
 import plus from '../assets/plusIcon.svg'
+import { data } from 'autoprefixer'
 
 
 
 export default function Magazin() {
-  const {list,removeItem,addPage,theme}=useGlobalContext()
+  const {list,removeItem,addPage,theme,arr}=useGlobalContext()
   return (
     <div className='h-screen'>
       <h1 className={`text-4xl font-semibold px-4 py-11 ${theme==='dark'?'text-white':'text-black'}`}>Настройки магазинов</h1>
@@ -32,8 +33,8 @@ export default function Magazin() {
         <h1>Действие</h1>
       </div>
       <hr />
-      {list.map((item)=>{
-        console.log(list);
+      {list?.map((item)=>{
+        console.log(item.name);
             return (
                 <div className='flex gap-[950px] items-center w-full mt-10 border-none bg-gray-100 py-4 rounded-s-2xl rounded-e-2xl' key={item.id}>
                 <h2 className='px-8 text-blue-500 font-semibold'>{item.name}</h2>
