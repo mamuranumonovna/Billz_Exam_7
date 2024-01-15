@@ -1,16 +1,23 @@
-import { Navigate } from "react-router-dom";
+import {Navigate, Outlet} from "react-router-dom";
 import { useGlobalContext } from "../context";
+import {useEffect, useState} from "react";
 
 
 
 
-export default function ProtectedRoute({ children }) {
-  
-  const {pr}=useGlobalContext();
+export default function ProtectedRoute() {
 
-    if (!pr){
-      return <Navigate to='/home' />
+  const [token,setToken] = useState();
+
+  useEffect(() => {
+    setToken(JSON.parse(localStorage.getItem('users')) || [])
+  },[])
+
+    if (Array.isArray(token)) {
+      if(token.length === 0) {
+        return <Navigate to='/login' />
+      }
     }
 
-    return children
+    return <Outlet/>
 }

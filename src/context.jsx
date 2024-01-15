@@ -177,7 +177,8 @@ const addLocalStorage = () => {
         telegramUsername,
         davlat,
         emailIndex,
-        bank
+        bank,
+        name:store
     }
 
 

@@ -36,18 +36,19 @@ function App() {
                     {!isLoginPage && <Sidebar />}
                     <div className={`${location.pathname === '/magazin/magazin' ? 'h-auto' : 'h-screen'}`}>
                         <Routes>
-                            <Route path='/' element={<Navigate to='/login' />} />
-                            <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
-                            <Route path='/login' element={<Login />} />
-                            <Route path='/profile' element={<Profile />} />
-                            <Route path='/company' element={<Company />} />
-                            <Route path='/magazin' element={<Magazin />} />
-                            <Route path='/cash' element={<CashRegistr />} />
-                            <Route path='/check' element={<Checks />} />
-                            <Route path='/currencies' element={<Currencies />} />
-                            <Route path='/products' element={<Products />} />
-                            <Route path='/magazin/magazin' element={<StoreRivera />} />
-                            <Route path='*' element={<Error />} />
+                        <Route path='/login' element={<Login />} />
+                            <Route element={<ProtectedRoute/>}>
+                                <Route path='/home' element={<Home/>} />
+                                <Route path='/profile' element={<Profile />} />
+                                <Route path='/company' element={<Company />} />
+                                <Route path='/magazin' element={<Magazin />} />
+                                <Route path='/cash' element={<CashRegistr />} />
+                                <Route path='/check' element={<Checks />} />
+                                <Route path='/currencies' element={<Currencies />} />
+                                <Route path='/products' element={<Products />} />
+                                <Route path='/magazin/magazin' element={<StoreRivera />} />
+                                <Route path='*' element={<Error />} />
+                            </Route>
                         </Routes>
                     </div>
                 </div>
