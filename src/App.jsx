@@ -26,7 +26,7 @@ function App() {
         localStorage.setItem('lists', JSON.stringify(list));
     }, [user, list]);
 
-    // Check if the current route is the login page
+    
     const isLoginPage = location.pathname === '/login';
 
     return (
